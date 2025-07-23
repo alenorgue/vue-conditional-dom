@@ -12,7 +12,7 @@
 <body>
     <div id="app">
         <h1>Rock Paper Scissors Game</h1>
-        <section v-show="aiWins < aiWinsLimit && playerWins < playerWinsLimit">
+        <section v-show="aiWins < winsLimit && playerWins < winsLimit">
             <p>Choose your move:</p>
             <div class="buttons">
                 <button @click="handleMoveSelection('rock')" id="rock">&#x1F44A;</button>
@@ -28,8 +28,10 @@
         </p>
         <hr>
         <section style="text-align: center;">
-            <h2 v-if="aiWins === aiWinsLimit" style="color: red">¡La IA ha ganado 3 rondas! ¡Lo siento, pero has perdido!</h2>
-            <h2 v-if="playerWins === playerWinsLimit" style="color: green">¡Enhorabuena! ¡Eres el vencedor tras ganar 3 rondas!
+            <h2 v-if="aiWins === winsLimit" style="color: red">¡La IA ha ganado 3 rondas! ¡Lo siento, pero has perdido!
+            </h2>
+            <h2 v-else if="playerWins === winsLimit" style="color: green">¡Enhorabuena! ¡Eres el vencedor tras ganar 3
+                rondas!
                 😊🦜</h2>
         </section>
     </div>
@@ -60,7 +62,7 @@
             setup() {
                 const aiWins = ref(0);
                 const lastAIMove = ref('');
-
+                const winsLimit = 3;
                 const playerWins = ref(0);
                 const lastPlayerMove = ref('');
 
@@ -74,9 +76,6 @@
                         aiWins.value++;
                     }
                 }
-                const aiWinsLimit = 3;
-                const playerWinsLimit = 3;
-
 
                 return {
                     aiWins,
@@ -84,8 +83,7 @@
                     handleMoveSelection,
                     lastAIMove,
                     lastPlayerMove,
-                    aiWinsLimit,
-                    playerWinsLimit
+                    winsLimit
                 }
             }
         }).mount('#app')

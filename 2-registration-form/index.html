@@ -47,33 +47,33 @@
 
     </main>
 
-  <script type="module">
-    import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+    <script type="module">
+        import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
 
-    createApp({
-      setup() {
-            const name = ref('')
-            const age = ref(null)
-            const email = ref('')
-            const accepted = ref(false)
-            const submitted = ref(false)
+        createApp({
+            setup() {
+                const name = ref('')
+                const age = ref(null)
+                const email = ref('')
+                const accepted = ref(false)
+                const submitted = ref(false)
 
-            const submitForm = () => {
-               submitted.value = true
+                const submitForm = () => {
+                    submitted.value = true
+                }
+
+
+                return {
+                    name,
+                    age,
+                    email,
+                    accepted,
+                    submitted,
+                    submitForm
+                }
             }
-        
-
-        return { 
-            name,
-            age,
-            email,
-            accepted,
-            submitted,
-            submitForm
-         }
-      }
-    }).mount('#app')
-  </script>
+        }).mount('#app')
+    </script>
 </body>
 
 </html>
