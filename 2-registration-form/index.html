@@ -8,45 +8,72 @@
 </head>
 
 <body>
-    <main class="container">
-        <form>
+    <main id="app" class="container">
+        <form @submit.prevent="submitForm" v-if="!submitted">
             <h1>Register</h1>
 
             <label>
                 Name:
-                <input type="text" name="name" required />
+                <input v-model="name" type="text" name="name" required />
             </label>
 
             <label>
                 Age:
-                <input type="number" name="age" min="18" required />
+                <input v-model="age" type="number" name="age" min="18" required />
             </label>
 
             <label>
                 Email:
-                <input type="email" name="email" required />
+                <input v-model="email" type="email" name="email" required />
             </label>
 
             <label>
-                <input type="checkbox" name="accepted" />
+                <input type="checkbox" name="accepted" v-model="accepted" />
                 I accept the terms of use
             </label>
-            <input type="submit" value="Enviar" />
+            <input v-if="accepted" type="submit" value="Enviar" />
         </form>
 
 
         <!-- Esta sección se debe mostrar solamente tras hacer click en el botón de Submit -->
-        <section class="container">
+        <section v-show="submitted" class="container">
             <h1>¡Gracias por tu registro!</h1>
             <hr>
             <p>A continuación te confirmamos los datos que nos has enviado</p>
-            <p><strong>Name:</strong> </p>
-            <p><strong>Age:</strong> </p>
-            <p><strong>Email:</strong> </p>
+            <p><strong>Name:</strong> {{ name }}</p>
+            <p><strong>Age:</strong> {{ age }}</p>
+            <p><strong>Email:</strong> {{ email }}</p>
         </section>
 
     </main>
 
+  <script type="module">
+    import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+    createApp({
+      setup() {
+            const name = ref('')
+            const age = ref(null)
+            const email = ref('')
+            const accepted = ref(false)
+            const submitted = ref(false)
+
+            const submitForm = () => {
+               submitted.value = true
+            }
+        
+
+        return { 
+            name,
+            age,
+            email,
+            accepted,
+            submitted,
+            submitForm
+         }
+      }
+    }).mount('#app')
+  </script>
 </body>
 
 </html>

@@ -30,19 +30,19 @@
       </select>
     </label>
 
-    <section>
+    <section v-if="selected === 'cuisine'">
       <h2>Cocina</h2>
       <img class="img"
         src="https://img.carta.menu/storage/media/company_gallery/19438202/conversions/contribution_gallery.jpg" alt="">
       <p>La cocina local destaca por los productos del mar, como el suquet de peix y los arroces marineros.</p>
     </section>
 
-    <section>
+    <section v-if="selected === 'culture'">
       <h2>Cultura</h2>
       <p>Sant Feliu cuenta con el monasterio benedictino, museos y festivales culturales durante todo el año.</p>
     </section>
 
-    <section>
+    <section v-if="selected === 'beach'">
       <h2>Playa</h2>
       <img class="img" src="https://www.visitacostabrava.com/media/items/fullhd/platja-de-sant-feliu-de-guixols--1-.jpg"
         alt="">
@@ -51,7 +51,7 @@
       </p>
     </section>
 
-    <section>
+    <section v-if="selected === 'festivals'">
       <h2>Fiestas</h2>
       <img src="https://www.rsf.cat/wp-content/uploads/2023/05/1000-CARNAVAL-RUA-DIVENDRES.jpg" alt="">
       <p>La Fiesta Mayor en agosto y el Carnaval son celebraciones muy populares entre locales y visitantes.</p>
@@ -65,6 +65,7 @@
     createApp({
       setup() {
         const selected = ref('')
+        
         return { selected }
       }
     }).mount('#app')
