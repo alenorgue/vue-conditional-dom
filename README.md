@@ -39,7 +39,7 @@ Usa adecuadamente las directivas [v-if...v-else-if...](https://vuejs.org/guide/e
 Crea un formulario típico de registro. Este formulario tiene varias peculiaridades:
 
 1. Debido a que queremos aprovechar la validación de los formularios (el campo required, que un texto sea un email, etc); hemos usado el tag <form>. 
-2. Entonces, no usaremos el evento _click_ para gestionar el formulario, si no el evento [_submit_](https://vuejs.org/guide/essentials/event-handling.html#event-modifiers)
+2. Entonces, no usaremos el evento _click_ para gestionar el formulario, si no el evento [_submit_](https://vuejs.org/guide/essentials/event-handling.html#event-modifiers) . Te adjunto también un [ejemplo de uso](https://stackblitz.com/edit/stackblitz-starters-k9es6it5?file=index.html)
 3. Solamente tras hacer clic en el checkbox "I accept the terms of use", aparece el botón de submit
 4. Cuando el formulario valida y todos los datos son correctos, se oculta el contenedor del formulario y aparece otro explicando los datos que ha enviado el usuario.
 
