@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <h1>Rock Paper Scissors Game</h1>
+        <section v-if="aiWins!=3 && playerWins!=3">
+            <p>Choose your move:</p>
+            <div class="buttons">
+                <button @click="handleMoveSelection('rock')" id="rock">&#x1F44A;</button>
+                <button @click="handleMoveSelection('paper')" id="paper">&#x1f590;</button>
+                <button @click="handleMoveSelection('scissors')" id="scissors">&#x270c;</button>
+            </div>
+            <p id="result">You chose <em>{{ lastPlayerMove }}</em>, and AI chose <em> {{ lastAIMove }}</em></p>
+        </section>
+
+        <p id="scores">
+            Your score: <span id="user-score">{{ playerWins }}</span>
+            Computer score: <span id="computer-score">{{ aiWins }} </span>
+        </p>
+        <hr>
+        <section style="text-align: center;">
+            <h2 v-if="aiWins == 3" style="color: red">¡La IA ha ganado 3 rondas! ¡Lo siento, pero has perdido!</h2>
+            <h2 v-else-if="playerWins ==3" style="color: green">¡Enhorabuena! ¡Eres el vencedor tras ganar 3 rondas!
+                😊🦜</h2>
+        </section>
+    </div>
+
+    <script type="module">
+        import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+        // possible moves
+        const beats = {
+            rock: 'scissors',
+            paper: 'rock',
+            scissors: 'paper'
+        };
+
+        // Returns 'player', 'ai' or 'draw'
+        const getWinner = (playerMove, aiMove) => {
+            if (playerMove === aiMove) return 'draw';
+            return beats[playerMove] === aiMove ? 'player' : 'ai';
+        };
+
+        const getAIRandomMove = () => {
+            const moves = Object.keys(beats);
+            const index = Math.floor(Math.random() * moves.length);
+            return moves[index];
+        }
+
+        createApp({
+            setup() {
+                const aiWins = ref(0);
+                const lastAIMove = ref('');
+
+                const playerWins = ref(0);
+                const lastPlayerMove = ref('');
+
+                const handleMoveSelection = (move) => {
+                    lastPlayerMove.value = move;
+                    lastAIMove.value = getAIRandomMove();
+                    const result = getWinner(lastPlayerMove.value, lastAIMove.value);
+                    if (result === 'player') {
+                        playerWins.value++;
+                    } else if (result === 'ai') {
+                        aiWins.value++;
+                    }
+                }
+
+                return {
+                    aiWins,
+                    playerWins,
+                    handleMoveSelection,
+                    lastAIMove,
+                    lastPlayerMove,
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
