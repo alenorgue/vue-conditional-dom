@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Sant Feliu de Guíxols</title>
   <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
   <style>
     img {
-        width: 200px;
-        height: 200px;
-        object-fit: cover;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
     }
   </style>
 </head>
+
 <body>
   <main id="app" class="container">
 
@@ -28,25 +30,28 @@
       </select>
     </label>
 
-    <section v-if="selected === 'cuisine'">
+    <section>
       <h2>Cocina</h2>
-      <img class="img" src="https://img.carta.menu/storage/media/company_gallery/19438202/conversions/contribution_gallery.jpg" alt="">
+      <img class="img"
+        src="https://img.carta.menu/storage/media/company_gallery/19438202/conversions/contribution_gallery.jpg" alt="">
       <p>La cocina local destaca por los productos del mar, como el suquet de peix y los arroces marineros.</p>
     </section>
 
-    <section v-else-if="selected === 'culture'">
+    <section>
       <h2>Cultura</h2>
       <p>Sant Feliu cuenta con el monasterio benedictino, museos y festivales culturales durante todo el año.</p>
     </section>
 
-    <section v-else-if="selected === 'beach'">
+    <section>
       <h2>Playa</h2>
-            <img class="img" src="https://www.visitacostabrava.com/media/items/fullhd/platja-de-sant-feliu-de-guixols--1-.jpg" alt="">
+      <img class="img" src="https://www.visitacostabrava.com/media/items/fullhd/platja-de-sant-feliu-de-guixols--1-.jpg"
+        alt="">
 
-      <p>La playa principal y las calas cercanas son ideales para nadar, tomar el sol y practicar deportes acuáticos.</p>
+      <p>La playa principal y las calas cercanas son ideales para nadar, tomar el sol y practicar deportes acuáticos.
+      </p>
     </section>
 
-    <section v-else-if="selected === 'festivals'">
+    <section>
       <h2>Fiestas</h2>
       <img src="https://www.rsf.cat/wp-content/uploads/2023/05/1000-CARNAVAL-RUA-DIVENDRES.jpg" alt="">
       <p>La Fiesta Mayor en agosto y el Carnaval son celebraciones muy populares entre locales y visitantes.</p>
@@ -55,7 +60,7 @@
   </main>
 
   <script type="module">
-        import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+    import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
 
     createApp({
       setup() {
@@ -65,4 +70,5 @@
     }).mount('#app')
   </script>
 </body>
+
 </html>

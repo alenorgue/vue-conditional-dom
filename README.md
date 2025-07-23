@@ -20,7 +20,7 @@ Disponemos de un selector para obtener información sobre la ciudad de Sant Feli
 
 Usa adecuadamente las directivas [v-if...v-else-if...](https://vuejs.org/guide/essentials/conditional#v-if) para mostrar una sección u otra. ¡Fíjate en el valor del atribute _value_ de cada una de las opciones del select!
 
-**Tan solo debes modificar el HTML para conseguir esto...*** ¡Fíjate en el valor de las variables de estado!
+**Tan solo debes modificar el HTML para conseguir esto...*** ¡Fíjate en el valor de la variable de estado!
 
 
 ### 1-rock-paper-scissors
@@ -36,7 +36,12 @@ Usa adecuadamente las directivas [v-if...v-else-if...](https://vuejs.org/guide/e
 
 ### 2-registration-form
 
+Crea un formulario típico de registro. Este formulario tiene varias peculiaridades:
 
+1. Debido a que queremos aprovechar la validación de los formularios (el campo required, que un texto sea un email, etc); hemos usado el tag <form>. 
+2. Entonces, no usaremos el evento _click_ para gestionar el formulario, si no el evento [_submit_](https://vuejs.org/guide/essentials/event-handling.html#event-modifiers)
+3. Solamente tras hacer clic en el checkbox "I accept the terms of use", aparece el botón de submit
+4. Cuando el formulario valida y todos los datos son correctos, se oculta el contenedor del formulario y aparece otro explicando los datos que ha enviado el usuario.
 
 
 

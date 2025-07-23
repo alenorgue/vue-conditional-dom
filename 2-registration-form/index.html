@@ -8,9 +8,9 @@
 </head>
 
 <body>
-    <main id="app" class="container">
-        <form v-if="!submitted"  @submit.prevent="submit">
-                    <h1>Register</h1>
+    <main class="container">
+        <form>
+            <h1>Register</h1>
 
             <label>
                 Name:
@@ -31,48 +31,22 @@
                 <input type="checkbox" v-model="accepted" />
                 I accept the terms of use
             </label>
-            <input v-show="accepted" type="submit" value="Enviar" />
+            <input type="submit" value="Enviar" />
         </form>
 
 
         <!-- Esta sección se debe mostrar solamente tras hacer click en el botón de Submit -->
-        <section v-else class="container">
+        <section class="container">
             <h1>¡Gracias por tu registro!</h1>
             <hr>
             <p>A continuación te confirmamos los datos que nos has enviado</p>
-            <p><strong>Name:</strong> {{ name }}</p>
-            <p><strong>Age:</strong> {{ age }}</p>
-            <p><strong>Email:</strong> {{ email }}</p>
+            <p><strong>Name:</strong> </p>
+            <p><strong>Age:</strong> </p>
+            <p><strong>Email:</strong> </p>
         </section>
 
     </main>
 
-    <script type="module">
-        import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
-
-        createApp({
-            setup() {
-                const name = ref('')
-                const age = ref('')
-                const email = ref('')
-                const accepted = ref(false)
-                const submitted = ref(false)
-
-                function submit() {
-                    submitted.value = true
-                }
-
-                return {
-                    name,
-                    age,
-                    email,
-                    accepted,
-                    submitted,
-                    submit
-                }
-            }
-        }).mount('#app')
-    </script>
 </body>
 
 </html>
