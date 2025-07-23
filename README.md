@@ -44,6 +44,16 @@ Crea un formulario típico de registro. Este formulario tiene varias peculiarida
 4. Cuando el formulario valida y todos los datos son correctos, se oculta el contenedor del formulario y aparece otro explicando los datos que ha enviado el usuario.
 
 
+<details>
+  <summary>Pista 1: Comprueba una posible configuración de variables de estado</summary>
+  <pre>
+    const name = ref('') // nombre
+    const age = ref('') // edad
+    const email = ref('') // email
+    const accepted = ref(false) // el checkbox de aceptar las condiciones
+    const submitted = ref(false) // si ya ha enviado el formulario o no
+  </pre>
+</details>
 
 
 
